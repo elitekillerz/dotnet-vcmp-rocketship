@@ -9,7 +9,7 @@ namespace EliteKillerz.DotnetVcmp.Rocketship
         [UserEntryPoint]
         public static void EntryPoint(PluginFunctions pluginFunctions, ref PluginEvents pluginEvents)
         {
-            _sdkFunctions = pluginFunctions;
+            SdkFunctions = pluginFunctions;
             BindEvents(ref pluginEvents);
         }
 
@@ -21,6 +21,11 @@ namespace EliteKillerz.DotnetVcmp.Rocketship
                     throw new NullReferenceException();
 
                 return _sdkFunctions;
+            }
+
+            private set
+            {
+                _sdkFunctions = value;
             }
         }
 
