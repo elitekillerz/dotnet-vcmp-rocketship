@@ -40,7 +40,7 @@ public void ConfigureServices(
 )
 ```
 
-For information on how to use the service collection, refer to [Microsoft's documentation on their dependency injection solution]([https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection).
+For information on how to use the service collection, refer to [Microsoft's documentation on their dependency injection solution](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-3.1).
 
 ---
 
