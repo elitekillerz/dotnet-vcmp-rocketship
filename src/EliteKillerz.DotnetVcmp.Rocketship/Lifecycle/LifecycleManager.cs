@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace EliteKillerz.DotnetVcmp.Rocketship.Lifecycle
 {
-    public sealed class LifecycleManager
+    public static class LifecycleManager
     {
         private static Type GetStartupClass()
         {
@@ -22,23 +22,5 @@ namespace EliteKillerz.DotnetVcmp.Rocketship.Lifecycle
 
             return startupClasses.First();
         }
-
-        public static LifecycleManager Default
-        {
-            get
-            {
-                if (_defaultLifecycleManager == null)
-                    _defaultLifecycleManager = new LifecycleManager();
-
-                return _defaultLifecycleManager;
-            }
-
-            private set
-            {
-                _defaultLifecycleManager = value;
-            }
-        }
-
-        private static LifecycleManager? _defaultLifecycleManager;
     }
 }
