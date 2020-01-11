@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="EliteKillerz.DotnetVcmp.RuntimeClient" Version="2.0.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.1.0" />
   </ItemGroup>
 
 </Project>

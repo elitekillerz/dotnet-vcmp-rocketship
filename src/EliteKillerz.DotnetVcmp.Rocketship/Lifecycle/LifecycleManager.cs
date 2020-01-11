@@ -6,12 +6,12 @@ namespace EliteKillerz.DotnetVcmp.Rocketship.Lifecycle
 {
     public static class LifecycleManager
     {
-        private static Type GetStartupClass()
+        private static IStartup InstantiateStartupClass()
         {
             IList<Type> startupClasses =
                 (from assemblies in AppDomain.CurrentDomain.GetAssemblies()
                  from type in assemblies.GetTypes()
-                 where Attribute.IsDefined(type, typeof(StartupClassAttribute))
+                 where type.IsClass && Attribute.IsDefined(type, typeof(StartupClassAttribute))
                  select type).ToList();
 
             if (startupClasses.Count == 0)
@@ -20,7 +20,17 @@ namespace EliteKillerz.DotnetVcmp.Rocketship.Lifecycle
             if (startupClasses.Count > 1)
                 throw new AmbiguousStartupClassException();
 
-            return startupClasses.First();
+            Type startupClassType = startupClasses.First();
+
+            if (!startupClassType.IsSubclassOf(typeof(IStartup)))
+                throw new StartupClassUnderivedException();
+
+            IStartup? startupClass = (IStartup?)Activator.CreateInstance(startupClassType);
+
+            if (startupClass == null)
+                throw new StartupClassUninstantiableException();
+
+            return startupClass;
         }
     }
 }
