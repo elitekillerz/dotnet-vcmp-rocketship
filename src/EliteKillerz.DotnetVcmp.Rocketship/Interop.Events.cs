@@ -22,7 +22,7 @@ namespace EliteKillerz.DotnetVcmp.Rocketship
             events.OnPlayerUpdate = OnPlayerUpdate;
             events.OnPlayerRequestEnterVehicle = OnPlayerRequestEnterVehicle;
             events.OnPlayerEnterVehicle = OnPlayerEnterVehicle;
-            events.OnPlayerExitVehicleDelegate = OnPlayerExitVehicle;
+            events.OnPlayerExitVehicle = OnPlayerExitVehicle;
             events.OnPlayerNameChange = OnPlayerNameChange;
             events.OnPlayerStateChange = OnPlayerStateChange;
             events.OnPlayerActionChange = OnPlayerActionChange;
